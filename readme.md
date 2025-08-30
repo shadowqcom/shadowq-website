@@ -24,13 +24,13 @@
 1. 安装依赖
 
    ```bash
-   npm install
+   pnpm install
    ```
 
 2. 启动开发服务器
 
    ```bash
-   npm run dev
+   pnpm run dev
    ```
 
 3. 访问 [http://localhost:3000](http://localhost:3000)
