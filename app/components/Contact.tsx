@@ -1,117 +1,44 @@
 "use client"
 
-import { useState } from "react"
 import { motion } from "framer-motion"
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import * as z from "zod"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Button } from "@/components/ui/button"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { toast } from "@/components/ui/use-toast"
-
-const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
-  }),
-  email: z.string().email({
-    message: "Please enter a valid email address.",
-  }),
-  message: z.string().min(10, {
-    message: "Message must be at least 10 characters.",
-  }),
-})
 
 export default function Contact() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
-
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      message: "",
-    },
-  })
-
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsSubmitting(true)
-    // Simulate API call
-    setTimeout(() => {
-      console.log(values)
-      setIsSubmitting(false)
-      toast({
-        title: "Message sent!",
-        description: "We'll get back to you as soon as possible.",
-      })
-      form.reset()
-    }, 2000)
-  }
-
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-      <div className="container mx-auto max-w-md">
-        <motion.h2
-          className="text-4xl font-bold mb-8 text-center text-gray-900"
+    <section id="stay-inspired" className="bg-background py-20">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl p-8 shadow-lg"
         >
-          Get in Touch
-        </motion.h2>
-        <motion.div
-          className="bg-white p-8 rounded-2xl shadow-lg"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="John Doe" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                      <Input placeholder="john@example.com" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Message</FormLabel>
-                    <FormControl>
-                      <Textarea placeholder="Tell us about your project..." className="min-h-[120px]" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <Button type="submit" className="w-full" disabled={isSubmitting}>
-                {isSubmitting ? "Sending..." : "Send Message"}
-              </Button>
-            </form>
-          </Form>
+          <h2 className="text-2xl font-bold text-foreground mb-4 text-center">联系我们</h2>
+          <img
+            src="/call.svg"
+            alt="call"
+            className="mx-auto mb-4 w-80"
+          />
+          <p className="text-muted-foreground mb-6 text-center">
+            欢迎联系我们，获取更多解决方案。
+          </p>
+          <div className="text-center">
+            <a
+              href="https://bing.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-3 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+            >
+              微信客服
+            </a>
+          </div>
+          <div className="flex flex-col sm:flex-row justify-between items-center mt-6 mx-4 sm:mx-20 text-muted-foreground gap-y-2">
+            <a href="mailto:swatxhim@outlook.com" className="hover:text-primary transition-colors">
+              Email: swatxhim@outlook.com
+            </a>
+            <a href="tel:+8615811807109" className="hover:text-primary transition-colors">
+              Phone: (+86) 15811807109
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>

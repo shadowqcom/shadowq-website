@@ -38,11 +38,17 @@ export default function Header() {
           </Link>
         </div>
         <div className="flex gap-x-4 sm:gap-x-8 lg:gap-x-12 ml-4 md:ml-4 lg:ml-0">
+          <Link
+            href="/"
+            className="text-xs sm:text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors cursor-pointer"
+          >
+            首页
+          </Link>
           <button
             onClick={() => scrollToSection("service-features")}
             className="text-xs sm:text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors cursor-pointer"
           >
-            特色
+            特点
           </button>
           <button
             onClick={() => scrollToSection("service-content")}

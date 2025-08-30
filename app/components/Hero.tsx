@@ -49,14 +49,14 @@ export default function Hero() {
           </motion.div>
         </div>
         <motion.div
-          className="mx-auto mt-16 lg:mt-0"
+          className="mx-auto mt-16 lg:mt-0 flex justify-center lg:block"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <div className="relative">
             <img
-              src="/creative.png"
+              src="/hero.svg"
               alt="影象限"
               width={600}
               height={600}

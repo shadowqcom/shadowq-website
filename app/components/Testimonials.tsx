@@ -6,23 +6,23 @@ import Image from "next/image"
 const testimonials = [
   {
     quote:
-      "CreativeAgency transformed our brand's digital presence. Their innovative approach and attention to detail exceeded our expectations.",
-    author: "Jane Doe",
-    position: "CEO, TechCorp",
+      "饱含热情，酷爱工作",
+    author: "zjun",
+    position: "CEO",
     image: "/placeholder.svg?height=100&width=100",
   },
   {
     quote:
-      "Working with CreativeAgency was a game-changer for our startup. Their expertise in UI/UX design significantly improved our user engagement.",
-    author: "John Smith",
-    position: "Founder, InnovateTech",
+      "客户至上，服务为先",
+    author: "long",
+    position: "Sales Director",
     image: "/placeholder.svg?height=100&width=100",
   },
   {
     quote:
-      "The team at CreativeAgency are true professionals. Their digital marketing strategies helped us reach new audiences and boost our conversions.",
-    author: "Emily Brown",
-    position: "Marketing Director, GrowthCo",
+      "技术驱动，创新引领",
+    author: "yanz",
+    position: "CTO",
     image: "/placeholder.svg?height=100&width=100",
   },
 ]
@@ -37,7 +37,7 @@ export default function Testimonials() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          What Our Clients Say
+          团队成员
         </motion.h2>
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (

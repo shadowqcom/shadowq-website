@@ -1,23 +1,23 @@
 import Hero from "./components/Hero"
-import WearYourStory from "./components/WearYourStory"
-import FeatureCarousel from "./components/FeatureCarousel"
-import PortfolioGrid from "./components/PortfolioGrid"
+import IntroductionStory from "./components/IntroductionStory"
+import Advantage from "./components/Advantage"
+import Product from "./components/Product"
 import Timeline from "./components/Timeline"
 import Marquee from "./components/Marquee"
-import ContactForm from "./components/ContactForm"
-import NewsletterSubscribe from "./components/NewsletterSubscribe"
+import Contact from "./components/Contact"
+import FloatingActionButton from "./components/FloatingActionButton"
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <WearYourStory />
-      <FeatureCarousel />
-      <PortfolioGrid />
+      <IntroductionStory />
+      <Advantage />
+      <Product />
       <Timeline />
       <Marquee />
-      <ContactForm />
-      <NewsletterSubscribe />
+      <Contact />
+      <FloatingActionButton />
     </>
   )
 }

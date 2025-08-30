@@ -16,7 +16,7 @@ export default function Marquee() {
             <span
               className="text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-transparent px-4"
               style={{
-                WebkitTextStroke: "1px rgb(156 163 175)", // tailwind gray-400
+                WebkitTextStroke: "1px #9ca3af", // tailwind gray-400
               }}
             >
               创新 & 探索

@@ -5,47 +5,40 @@ import { motion, useScroll, useTransform, useSpring, useInView } from "framer-mo
 
 const timelineEvents = [
   {
-    year: 2018,
-    title: "Flowers & Saints Founded",
-    description: "Our journey began with a passion for minimal design and floral artistry.",
+    year: 2025,
+    title: "与多家上市公司达成合作",
+    description: "与路特创新，国信服务等上市企业达成战略合作",
     details:
-      "Founded by Jane Doe and John Smith, Flowers & Saints started as a small studio in Sydney's Surry Hills, combining their love for minimalist design and botanical beauty.",
+      "参与建设智能化办公系统，提升企业数字化管理水平。并达成人才输送合作模式，集教学与培养为一体的企业数字化服务",
   },
   {
-    year: 2019,
-    title: "First Major Exhibition",
-    description: "Showcased our unique blend of digital art and floral arrangements at the Sydney Design Festival.",
+    year: 2024,
+    title: "参与建设国家科研项目",
+    description: "参与广州市某局的牵头的国家级科考项目",
     details:
-      "Our exhibition 'Digital Bloom' attracted over 10,000 visitors and received critical acclaim for its innovative approach to merging technology with natural elements.",
-  },
-  {
-    year: 2020,
-    title: "Launch of Online Store",
-    description: "Expanded our reach by bringing our creations to the digital world.",
-    details:
-      "In response to global changes, we pivoted to e-commerce, offering our unique designs and virtual floral workshops to a worldwide audience.",
-  },
-  {
-    year: 2021,
-    title: "Collaboration with Top Brands",
-    description: "Partnered with leading lifestyle brands to create exclusive collections.",
-    details:
-      "Our collaborations included limited edition prints with Australian fashion label Zimmermann and a bespoke fragrance line with Aesop.",
-  },
-  {
-    year: 2022,
-    title: "International Recognition",
-    description: "Received the prestigious International Floral Design Award.",
-    details:
-      "Our 'Ethereal Echoes' installation, which combined holographic projections with live flowers, won the gold medal at the Chelsea Flower Show.",
+      "与东软合作建设科考船舶系统，实现了在公海环境船上人员内网通信需求打造了集办公娱乐于一体的智能化系统。",
   },
   {
     year: 2023,
-    title: "Expansion to Physical Stores",
-    description: "Opened our first flagship store in the heart of Sydney.",
+    title: "与广西彰泰集团达成战略合作",
+    description: "通过与广西彰泰集团的合作，帮助客户升级了智能费控系统。",
     details:
-      "Our Bondi Beach location features an immersive retail experience, blending digital installations with a curated selection of floral arrangements and lifestyle products.",
+      "与用友软件合作，推动智能财务管理解决方案的落地。",
   },
+  {
+    year: 2022,
+    title: "陆续与多家中大型企业达成合作",
+    description: "建设了广西盛天集团智能办公系统，助力企业数智化转型。",
+    details:
+      "同时与多家企业达成合作，推动行业数字化进程。包括与广西壮族自治区某县人民政府合作，推动智慧城市建设。",
+  },
+  {
+    year: 2021,
+    title: "影象限正式成立",
+    description: "正式创办影象限公司，团队最初5人。",
+    details:
+      "最开始从南宁出发，成为蓝凌软件服务商，2023年在深圳成立深圳影象限，团队规模扩大到20人。",
+  }
 ]
 
 export default function Timeline() {
@@ -72,7 +65,7 @@ export default function Timeline() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-3xl font-bold text-foreground sm:text-4xl">发展历程</h2>
-          <p className="mt-4 text-lg text-muted-foreground">The evolution of Flowers & Saints through the years</p>
+          <p className="mt-4 text-lg text-muted-foreground">多年来陪我们一起走过的历程。</p>
         </motion.div>
 
         <div className="relative">
