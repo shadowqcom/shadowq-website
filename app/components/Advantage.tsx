@@ -102,11 +102,11 @@ export default function Advantage() {
 					</p>
 					<motion.div
 						ref={carousel}
-						className="cursor-grab overflow-hidden"
+						className="relative cursor-grab overflow-hidden"
 					>
 						<motion.div
 							drag="x"
-							dragConstraints={{ right: 0, left: -width }}
+							dragConstraints={carousel}
 							whileTap={{ cursor: "grabbing" }}
 							animate={controls}
 							style={{ x }}

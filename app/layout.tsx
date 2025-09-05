@@ -10,9 +10,9 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata = {
   title: "影象限",
   description: "深圳市影象限软件有限公司（简称：影象限）成立于2021年，已经为众多组织提供智能办公、移动门户、知识管理、定制开发等一体化解决方案。",
-  keywords: "影象限，影象限官网",
+  keywords: "影象限，影象限官网，深圳市影象限软件有限公司，Ai解决方案，知识管理",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.svg",
   }
 }
 

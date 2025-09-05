@@ -32,7 +32,7 @@ export default function Header() {
             <span className="sr-only">影象限</span>
             <img
               className="h-8 w-auto"
-              src="/logo.png"
+              src="/logo.svg"
               alt="影象限"
             />
           </Link>

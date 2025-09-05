@@ -60,7 +60,10 @@ export default function Hero() {
               alt="影象限"
               width={600}
               height={600}
-              className="w-full max-w-[500px] rounded-2xl shadow-xl ring-1 ring-gray-900/10"
+              className="w-full max-w-[500px] rounded-2xl shadow-xl ring-1 ring-gray-900/10 svg-button"
+              style={{
+                filter: "drop-shadow(0 8px 32px rgba(0,0,0,0.18))",
+              }}
             />
           </div>
         </motion.div>
