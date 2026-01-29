@@ -6,7 +6,8 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "deploy": "wrangler pages deploy ./out --project-name=shadowq_com"
   },
   "dependencies": {
     "@babel/core": "^7.28.3",
