@@ -1,9 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
-  images: {
-    unoptimized: true, // Cloudflare Pages 需要这个设置
-  },
   eslint: {
     ignoreDuringBuilds: true,
   },
