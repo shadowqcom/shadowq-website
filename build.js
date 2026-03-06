@@ -57,4 +57,21 @@ fs.writeFileSync(path.join(distDir, 'index.html'), processHtml(indexHtml))
 console.log('Copying public directory...')
 copyDir(publicDir, path.join(distDir, 'public'))
 
+console.log('Copying font files...')
+const fontSourceDir = path.join(rootDir, 'node_modules', '@fontsource', 'noto-sans-sc', 'files')
+const fontDestDir = path.join(distDir, 'css', 'files')
+const neededFonts = [
+  'noto-sans-sc-chinese-simplified-400-normal.woff2',
+  'noto-sans-sc-chinese-simplified-500-normal.woff2',
+  'noto-sans-sc-chinese-simplified-600-normal.woff2',
+  'noto-sans-sc-chinese-simplified-700-normal.woff2',
+]
+ensureDir(fontDestDir)
+for (const font of neededFonts) {
+  const srcPath = path.join(fontSourceDir, font)
+  if (fs.existsSync(srcPath)) {
+    fs.copyFileSync(srcPath, path.join(fontDestDir, font))
+  }
+}
+
 console.log('Build complete! Output in dist/')

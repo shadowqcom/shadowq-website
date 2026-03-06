@@ -65,6 +65,19 @@ export default {
           ...fontFamily.sans,
         ],
       },
+      fontSize: {
+        "display-1": ["4.5rem", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "display-2": ["3.75rem", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "heading-1": ["3rem", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "heading-2": ["2.25rem", { lineHeight: "1.25", letterSpacing: "-0.01em", fontWeight: "700" }],
+        "heading-3": ["1.5rem", { lineHeight: "1.3", letterSpacing: "-0.01em", fontWeight: "600" }],
+        "heading-4": ["1.25rem", { lineHeight: "1.4", fontWeight: "600" }],
+        "body-lg": ["1.125rem", { lineHeight: "1.75", fontWeight: "400" }],
+        "body": ["1rem", { lineHeight: "1.75", fontWeight: "400" }],
+        "body-sm": ["0.875rem", { lineHeight: "1.6", fontWeight: "400" }],
+        "caption": ["0.75rem", { lineHeight: "1.5", fontWeight: "500" }],
+        "overline": ["0.625rem", { lineHeight: "1.5", letterSpacing: "0.1em", fontWeight: "500" }],
+      },
       keyframes: {
         "fade-in-up": {
           "0%": { opacity: "0", transform: "translateY(20px)" },

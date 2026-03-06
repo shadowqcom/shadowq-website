@@ -1,3 +1,8 @@
+@import "@fontsource/noto-sans-sc/chinese-simplified-400.css";
+@import "@fontsource/noto-sans-sc/chinese-simplified-500.css";
+@import "@fontsource/noto-sans-sc/chinese-simplified-600.css";
+@import "@fontsource/noto-sans-sc/chinese-simplified-700.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -66,6 +71,51 @@
   }
   ::selection {
     @apply bg-primary/20 text-foreground;
+  }
+}
+
+@layer components {
+  .typography-display-1 {
+    @apply text-display-1 text-foreground;
+  }
+  .typography-display-2 {
+    @apply text-display-2 text-foreground;
+  }
+  .typography-heading-1 {
+    @apply text-heading-1 text-foreground;
+  }
+  .typography-heading-2 {
+    @apply text-heading-2 text-foreground;
+  }
+  .typography-heading-3 {
+    @apply text-heading-3 text-foreground;
+  }
+  .typography-heading-4 {
+    @apply text-heading-4 text-foreground;
+  }
+  .typography-body-lg {
+    @apply text-body-lg text-muted-foreground;
+  }
+  .typography-body {
+    @apply text-body text-muted-foreground;
+  }
+  .typography-body-sm {
+    @apply text-body-sm text-muted-foreground;
+  }
+  .typography-caption {
+    @apply text-caption text-muted-foreground;
+  }
+  .typography-overline {
+    @apply text-overline text-muted-foreground uppercase;
+  }
+  .typography-label {
+    @apply text-body-sm font-medium text-foreground;
+  }
+  .typography-link {
+    @apply text-body text-primary hover:underline underline-offset-4 transition-colors;
+  }
+  .typography-tag {
+    @apply text-caption font-medium text-primary;
   }
 }
 
