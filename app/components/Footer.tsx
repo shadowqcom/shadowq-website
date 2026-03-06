@@ -1,14 +1,9 @@
 "use client"
 
 import Link from "next/link"
+import { scrollToSection } from "@/lib/utils"
 
 export default function Footer() {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
-  }
 
   return (
     <footer className="bg-background border-t border-border">
