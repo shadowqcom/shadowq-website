@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh-CN" x-data="{ theme: localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'), mobileMenuOpen: false }" :class="theme" x-init="$watch('theme', val => localStorage.setItem('theme', val))">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>影象限</title>
+  <meta name="description" content="深圳市影象限软件有限公司（简称：影象限）成立于2021年，已经为众多组织提供智能办公、移动门户、知识管理、定制开发等一体化解决方案。">
+  <meta name="keywords" content="影象限，影象限官网，深圳市影象限软件有限公司，Ai解决方案，知识管理">
+  <link rel="icon" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="./css/output.css" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-background text-foreground font-sans antialiased">
+
+  <div class="relative flex min-h-screen flex-col">
+    <header class="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div class="container flex h-16 items-center justify-between mx-auto max-w-7xl">
+        <div class="flex items-center gap-6">
+          <a href="/" class="flex items-center gap-2">
+            <svg class="h-7 w-7 text-primary"><use href="/sprites.svg#logo"/></svg>
+            <span class="text-lg font-semibold text-foreground">影象限</span>
+          </a>
+          <nav class="hidden md:flex items-center gap-6">
+            <button onclick="scrollToSection('about')" class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">关于</button>
+            <button onclick="scrollToSection('features')" class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">特点</button>
+            <button onclick="scrollToSection('services')" class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">服务</button>
+            <button onclick="scrollToSection('contact')" class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">联系</button>
+          </nav>
+        </div>
+        
+        <div class="flex items-center gap-3">
+          <button 
+            @click="theme = theme === 'dark' ? 'light' : 'dark'" 
+            class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground h-9 w-9"
+          >
+            <svg x-show="theme === 'dark'" class="h-5 w-5"><use href="/sprites.svg#sun"/></svg>
+            <svg x-show="theme === 'light'" class="h-5 w-5"><use href="/sprites.svg#moon"/></svg>
+          </button>
+          
+          <button 
+            type="button" 
+            @click="mobileMenuOpen = !mobileMenuOpen" 
+            class="md:hidden inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground h-9 w-9"
+          >
+            <svg x-show="!mobileMenuOpen" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+            <svg x-show="mobileMenuOpen" x-cloak class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      <div x-show="mobileMenuOpen" x-cloak x-transition class="md:hidden border-t border-border/40">
+        <div class="container py-4">
+          <nav class="flex flex-col gap-3">
+            <button onclick="scrollToSection('about'); mobileMenuOpen = false" class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2 text-left">关于</button>
+            <button onclick="scrollToSection('features'); mobileMenuOpen = false" class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2 text-left">特点</button>
+            <button onclick="scrollToSection('services'); mobileMenuOpen = false" class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2 text-left">服务</button>
+            <button onclick="scrollToSection('contact'); mobileMenuOpen = false" class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2 text-left">联系</button>
+            <a href="https://work.weixin.qq.com/kfid/kfcbbb3d72fe4f7da49" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 mt-2">
+              开始合作
+            </a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-1">
+      <div class="relative w-full overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-radial opacity-50"></div>
+        <div class="absolute inset-0 bg-grid opacity-30"></div>
+        <section class="relative w-full py-16 md:py-24 lg:py-32">
+          <div class="container px-4 md:px-6 mx-auto max-w-7xl relative z-10">
+            <div class="flex flex-col items-center text-center space-y-6">
+              <div class="animate-fade-in-down animation-delay-100 inline-flex items-center rounded-full border border-border px-4 py-1.5 text-sm font-medium transition-colors bg-secondary text-secondary-foreground">
+                Ai 技术驱动
+              </div>
+              <h1 class="animate-fade-in-up animation-delay-200 text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl text-foreground max-w-4xl">
+                <span class="text-gradient-animated">技术驱动价值</span>
+              </h1>
+              <p class="animate-fade-in-up animation-delay-300 max-w-[700px] text-muted-foreground text-base md:text-lg lg:text-xl leading-relaxed">
+                影象限是一家专注于 Ai 技术的公司，提供 Ai+ 行业解决方案，包含大模型私有化和Ai应用场景开发的全生命周期服务。
+              </p>
+              <div class="animate-fade-in-up animation-delay-400 flex flex-col sm:flex-row gap-3 mt-4">
+                <a href="https://work.weixin.qq.com/kfid/kfcbbb3d72fe4f7da49" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8">
+                  开始合作
+                </a>
+                <button onclick="scrollToSection('services')" class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 px-8">
+                  了解更多
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="about" class="w-full py-16 md:py-24 border-t border-border/40 relative z-10">
+          <div class="container px-4 md:px-6 mx-auto max-w-7xl">
+          <div class="flex flex-col items-center text-center space-y-4 mb-12">
+            <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl text-foreground">关于影象限</h2>
+            <p class="max-w-[800px] text-muted-foreground md:text-lg">
+              深圳市影象限软件有限公司（简称：影象限）成立于2021年，是一家现代化的软件技术服务商。秉承用数字技术提升客户价值的使命，提供软件与数字技术服务，致力于成为企业数字化转型可信赖的合作伙伴。
+            </p>
+          </div>
+          
+          <div class="grid gap-6 md:grid-cols-3">
+            <div class="card-hover group relative flex flex-col p-6 rounded-xl border border-border bg-background">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                  <img src="/knowledge.svg" alt="知识工作者" class="w-6 h-6">
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">专业受尊敬的知识工作者</h3>
+              </div>
+              <p class="text-sm text-muted-foreground leading-relaxed">
+                我们靠专业和知识落地交付让客户满意；获得客户的尊敬是我们的最高追求。
+              </p>
+            </div>
+            
+            <div class="card-hover group relative flex flex-col p-6 rounded-xl border border-border bg-background">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                  <img src="/innovate.svg" alt="活力" class="w-6 h-6">
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">坚持创新的活力新生代</h3>
+              </div>
+              <p class="text-sm text-muted-foreground leading-relaxed">
+                我们不断探索新的可能性，通过创新来解决现有问题和挑战，为客户带来新的价值和机遇。
+              </p>
+            </div>
+            
+            <div class="card-hover group relative flex flex-col p-6 rounded-xl border border-border bg-background">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                  <img src="/life.svg" alt="热爱生活" class="w-6 h-6">
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">热爱生活的乐观主义者</h3>
+              </div>
+              <p class="text-sm text-muted-foreground leading-relaxed">
+                我们对生活充满了热情和激情，保持乐观的心态，积极应对，传递积极向上的力量。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      </div>
+
+      <section id="features" class="w-full py-16 md:py-24 border-t border-border/40 bg-muted/30 relative overflow-hidden">
+        <div class="absolute inset-0 bg-dots opacity-30"></div>
+        <div class="container px-4 md:px-6 mx-auto max-w-7xl relative z-10">
+          <div class="flex flex-col items-center text-center space-y-4 mb-12">
+            <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl text-foreground">服务特点</h2>
+            <p class="max-w-[600px] text-muted-foreground md:text-lg">
+              秉持以客为中心的理念提供更优质的服务。
+            </p>
+          </div>
+          
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="card-hover group relative flex flex-col p-5 rounded-xl border border-border bg-background">
+              <div class="text-2xl mb-3">🔄</div>
+              <h3 class="text-base font-semibold text-foreground mb-2">数字化转型经验丰富</h3>
+              <p class="text-sm text-muted-foreground">深度参与多个行业的数字化转型项目，具备成熟的方法论和实践经验。</p>
+            </div>
+            
+            <div class="card-hover group relative flex flex-col p-5 rounded-xl border border-border bg-background">
+              <div class="text-2xl mb-3">🎯</div>
+              <h3 class="text-base font-semibold text-foreground mb-2">定制化解决方案能力</h3>
+              <p class="text-sm text-muted-foreground">坚持"以客户为中心"的服务理念，根据企业实际业务场景提供量身定制的解决方案。</p>
+            </div>
+            
+            <div class="card-hover group relative flex flex-col p-5 rounded-xl border border-border bg-background">
+              <div class="text-2xl mb-3">🔧</div>
+              <h3 class="text-base font-semibold text-foreground mb-2">全生命周期技术支持</h3>
+              <p class="text-sm text-muted-foreground">提供从咨询规划、系统开发、部署上线到运营维护的全生命周期服务。</p>
+            </div>
+            
+            <div class="card-hover group relative flex flex-col p-5 rounded-xl border border-border bg-background">
+              <div class="text-2xl mb-3">⚡</div>
+              <h3 class="text-base font-semibold text-foreground mb-2">敏捷开发与快速迭代</h3>
+              <p class="text-sm text-muted-foreground">采用敏捷开发模式，通过短周期迭代和持续交付机制，及时响应需求变化。</p>
+            </div>
+            
+            <div class="card-hover group relative flex flex-col p-5 rounded-xl border border-border bg-background">
+              <div class="text-2xl mb-3">🔒</div>
+              <h3 class="text-base font-semibold text-foreground mb-2">数据安全与合规保障</h3>
+              <p class="text-sm text-muted-foreground">严格遵循数据安全规范和行业合规要求，在系统设计中内置安全机制。</p>
+            </div>
+            
+            <div class="card-hover group relative flex flex-col p-5 rounded-xl border border-border bg-background">
+              <div class="text-2xl mb-3">🌐</div>
+              <h3 class="text-base font-semibold text-foreground mb-2">跨行业技术整合能力</h3>
+              <p class="text-sm text-muted-foreground">具备金融、医疗、零售等多行业技术服务经验，能够将前沿技术与行业特性深度融合。</p>
+            </div>
+            
+            <div class="card-hover group relative flex flex-col p-5 rounded-xl border border-border bg-background">
+              <div class="text-2xl mb-3">💰</div>
+              <h3 class="text-base font-semibold text-foreground mb-2">成本优化与高性价比</h3>
+              <p class="text-sm text-muted-foreground">通过资源高效调配和流程优化，在保证质量的前提下为客户控制项目成本。</p>
+            </div>
+            
+            <div class="card-hover group relative flex flex-col p-5 rounded-xl border border-border bg-background">
+              <div class="text-2xl mb-3">📈</div>
+              <h3 class="text-base font-semibold text-foreground mb-2">7x24小时运维支持</h3>
+              <p class="text-sm text-muted-foreground">提供全天候系统监控与应急响应服务，快速定位并解决技术问题。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="w-full py-16 md:py-24 border-t border-border/40" x-data="{ filter: '全部' }">
+        <div class="container px-4 md:px-6 mx-auto max-w-7xl">
+          <div class="flex flex-col items-center text-center space-y-4 mb-10">
+            <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl text-foreground">服务内容</h2>
+            <p class="max-w-[600px] text-muted-foreground md:text-lg">
+              专项解决方案和对应的产品内容。
+            </p>
+          </div>
+
+          <div class="flex flex-wrap justify-center gap-2 mb-10">
+            <button @click="filter = '全部'" :class="filter === '全部' ? 'bg-primary text-primary-foreground' : 'bg-muted text-foreground hover:bg-muted/80'" class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors h-9 px-4">
+              全部
+            </button>
+            <button @click="filter = 'Ai 人工智能'" :class="filter === 'Ai 人工智能' ? 'bg-primary text-primary-foreground' : 'bg-muted text-foreground hover:bg-muted/80'" class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors h-9 px-4">
+              Ai 人工智能
+            </button>
+            <button @click="filter = '数智化工作平台'" :class="filter === '数智化工作平台' ? 'bg-primary text-primary-foreground' : 'bg-muted text-foreground hover:bg-muted/80'" class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors h-9 px-4">
+              数智化工作平台
+            </button>
+            <button @click="filter = '代代码平台'" :class="filter === '代代码平台' ? 'bg-primary text-primary-foreground' : 'bg-muted text-foreground hover:bg-muted/80'" class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors h-9 px-4">
+              代代码平台
+            </button>
+          </div>
+
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <template x-if="filter === '全部' || filter === 'Ai 人工智能'">
+              <div class="card-hover group relative flex flex-col rounded-xl border border-border bg-background overflow-hidden">
+                <div class="bg-muted/30 flex items-center justify-center p-4 h-36">
+                  <img src="/product/team_work.svg" alt="协作知识库" class="w-28 h-28 object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="flex flex-col p-5">
+                  <span class="text-xs font-medium text-primary mb-2"># Ai 人工智能</span>
+                  <h3 class="text-base font-semibold text-foreground mb-2">协作知识库</h3>
+                  <p class="text-sm text-muted-foreground mb-4">让协同办公、业务应用更智能,接入DeepSeek，私有化部署，灵活搭建多场景智能体</p>
+                  <a href="https://work.weixin.qq.com/kfid/kfcbbb3d72fe4f7da49" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-primary hover:underline inline-flex items-center gap-1">
+                    获取方案
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </template>
+            
+            <template x-if="filter === '全部' || filter === 'Ai 人工智能'">
+              <div class="card-hover group relative flex flex-col rounded-xl border border-border bg-background overflow-hidden">
+                <div class="bg-muted/30 flex items-center justify-center p-4 h-36">
+                  <img src="/product/artificial_intelligence.svg" alt="大模型+智能体" class="w-28 h-28 object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="flex flex-col p-5">
+                  <span class="text-xs font-medium text-primary mb-2"># Ai 人工智能</span>
+                  <h3 class="text-base font-semibold text-foreground mb-2">大模型+智能体</h3>
+                  <p class="text-sm text-muted-foreground mb-4">Deepseek、豆包、通义千问、文心一言...等大模型私有化部署+向量模型、OCR模型等小模型</p>
+                  <a href="https://work.weixin.qq.com/kfid/kfcbbb3d72fe4f7da49" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-primary hover:underline inline-flex items-center gap-1">
+                    获取方案
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </template>
+            
+            <template x-if="filter === '全部' || filter === 'Ai 人工智能'">
+              <div class="card-hover group relative flex flex-col rounded-xl border border-border bg-background overflow-hidden">
+                <div class="bg-muted/30 flex items-center justify-center p-4 h-36">
+                  <img src="/product/questions.svg" alt="智能问答" class="w-28 h-28 object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="flex flex-col p-5">
+                  <span class="text-xs font-medium text-primary mb-2"># Ai 人工智能</span>
+                  <h3 class="text-base font-semibold text-foreground mb-2">智能问答</h3>
+                  <p class="text-sm text-muted-foreground mb-4">多轮问答帮助用户获得更精准答案、用户可选择不同主题机器人、可选择不同模型</p>
+                  <a href="https://work.weixin.qq.com/kfid/kfcbbb3d72fe4f7da49" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-primary hover:underline inline-flex items-center gap-1">
+                    获取方案
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </template>
+            
+            <template x-if="filter === '全部' || filter === '数智化工作平台'">
+              <div class="card-hover group relative flex flex-col rounded-xl border border-border bg-background overflow-hidden">
+                <div class="bg-muted/30 flex items-center justify-center p-4 h-36">
+                  <img src="/product/process.svg" alt="流程管理" class="w-28 h-28 object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="flex flex-col p-5">
+                  <span class="text-xs font-medium text-primary mb-2"># 数智化工作平台</span>
+                  <h3 class="text-base font-semibold text-foreground mb-2">流程管理</h3>
+                  <p class="text-sm text-muted-foreground mb-4">流程表单管理、流程权限管理、流程数据报表、流程监控与预警、流程效率分析</p>
+                  <a href="https://work.weixin.qq.com/kfid/kfcbbb3d72fe4f7da49" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-primary hover:underline inline-flex items-center gap-1">
+                    获取方案
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </template>
+            
+            <template x-if="filter === '全部' || filter === '数智化工作平台'">
+              <div class="card-hover group relative flex flex-col rounded-xl border border-border bg-background overflow-hidden">
+                <div class="bg-muted/30 flex items-center justify-center p-4 h-36">
+                  <img src="/product/online_organizer.svg" alt="门户管理" class="w-28 h-28 object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="flex flex-col p-5">
+                  <span class="text-xs font-medium text-primary mb-2"># 数智化工作平台</span>
+                  <h3 class="text-base font-semibold text-foreground mb-2">门户管理</h3>
+                  <p class="text-sm text-muted-foreground mb-4">集团化门户、专业化门户、生态化门户、移动门户、角色门户</p>
+                  <a href="https://work.weixin.qq.com/kfid/kfcbbb3d72fe4f7da49" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-primary hover:underline inline-flex items-center gap-1">
+                    获取方案
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </template>
+            
+            <template x-if="filter === '全部' || filter === '数智化工作平台'">
+              <div class="card-hover group relative flex flex-col rounded-xl border border-border bg-background overflow-hidden">
+                <div class="bg-muted/30 flex items-center justify-center p-4 h-36">
+                  <img src="/product/events.svg" alt="文会事" class="w-28 h-28 object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="flex flex-col p-5">
+                  <span class="text-xs font-medium text-primary mb-2"># 数智化工作平台</span>
+                  <h3 class="text-base font-semibold text-foreground mb-2">文会事</h3>
+                  <p class="text-sm text-muted-foreground mb-4">公文管理、会议管理、督办管理、新闻管理、任务管理、项目协作</p>
+                  <a href="https://work.weixin.qq.com/kfid/kfcbbb3d72fe4f7da49" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-primary hover:underline inline-flex items-center gap-1">
+                    获取方案
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </template>
+            
+            <template x-if="filter === '全部' || filter === '代代码平台'">
+              <div class="card-hover group relative flex flex-col rounded-xl border border-border bg-background overflow-hidden">
+                <div class="bg-muted/30 flex items-center justify-center p-4 h-36">
+                  <img src="/product/design_tools.svg" alt="可视化搭建引擎" class="w-28 h-28 object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="flex flex-col p-5">
+                  <span class="text-xs font-medium text-primary mb-2"># 代代码平台</span>
+                  <h3 class="text-base font-semibold text-foreground mb-2">可视化搭建引擎</h3>
+                  <p class="text-sm text-muted-foreground mb-4">表单流程拖拽可得、可视化表单、流程设计，所见即所得配置方式</p>
+                  <a href="https://work.weixin.qq.com/kfid/kfcbbb3d72fe4f7da49" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-primary hover:underline inline-flex items-center gap-1">
+                    获取方案
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </template>
+            
+            <template x-if="filter === '全部' || filter === '代代码平台'">
+              <div class="card-hover group relative flex flex-col rounded-xl border border-border bg-background overflow-hidden">
+                <div class="bg-muted/30 flex items-center justify-center p-4 h-36">
+                  <img src="/product/data_trends.svg" alt="可视化数据引擎" class="w-28 h-28 object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="flex flex-col p-5">
+                  <span class="text-xs font-medium text-primary mb-2"># 代代码平台</span>
+                  <h3 class="text-base font-semibold text-foreground mb-2">可视化数据引擎</h3>
+                  <p class="text-sm text-muted-foreground mb-4">数据分析一目了然，原生系统图表引擎，快速构建多层级数据，自动穿透汇总</p>
+                  <a href="https://work.weixin.qq.com/kfid/kfcbbb3d72fe4f7da49" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-primary hover:underline inline-flex items-center gap-1">
+                    获取方案
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </template>
+            
+            <template x-if="filter === '全部' || filter === '代代码平台'">
+              <div class="card-hover group relative flex flex-col rounded-xl border border-border bg-background overflow-hidden">
+                <div class="bg-muted/30 flex items-center justify-center p-4 h-36">
+                  <img src="/product/settings.svg" alt="规则配置引擎" class="w-28 h-28 object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="flex flex-col p-5">
+                  <span class="text-xs font-medium text-primary mb-2"># 代代码平台</span>
+                  <h3 class="text-base font-semibold text-foreground mb-2">规则配置引擎</h3>
+                  <p class="text-sm text-muted-foreground mb-4">灵活应对业务变化，业务表单关系、业务场景等可配置，快速构建业务分析模型</p>
+                  <a href="https://work.weixin.qq.com/kfid/kfcbbb3d72fe4f7da49" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-primary hover:underline inline-flex items-center gap-1">
+                    获取方案
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+      </section>
+
+      <section id="timeline" class="w-full py-16 md:py-24 border-t border-border/40 bg-muted/30 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-radial opacity-30"></div>
+        <div class="container px-4 md:px-6 mx-auto max-w-7xl relative z-10">
+          <div class="flex flex-col items-center text-center space-y-4 mb-12">
+            <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl text-foreground">发展历程</h2>
+            <p class="max-w-[600px] text-muted-foreground md:text-lg">
+              多年来陪我们一起走过的历程。
+            </p>
+          </div>
+
+          <div class="relative max-w-3xl mx-auto" x-data="{ expanded: null }">
+            <div class="absolute left-3 sm:left-1/2 top-0 bottom-0 w-px bg-border sm:-translate-x-1/2"></div>
+
+            <div class="space-y-8">
+              <div class="relative flex items-start">
+                <div class="flex-1 sm:flex-none sm:w-1/2 sm:pr-8 sm:text-right">
+                  <div class="card-hover ml-8 sm:ml-0 p-5 rounded-xl border border-border bg-background cursor-pointer" @click="expanded = expanded === 2025 ? null : 2025">
+                    <span class="text-xs font-bold text-primary">2025</span>
+                    <h3 class="text-base font-semibold text-foreground mt-1 mb-1">与多家上市公司达成合作</h3>
+                    <p class="text-sm text-muted-foreground">与路特创新，国信服务等上市企业达成战略合作</p>
+                    <div x-show="expanded === 2025" x-collapse class="overflow-hidden">
+                      <p class="mt-3 text-xs text-muted-foreground pt-3 border-t border-border">参与建设智能化办公系统，提升企业数字化管理水平。并达成人才输送合作模式，集教学与培养为一体的企业数字化服务</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="absolute left-3 sm:left-1/2 w-2 h-2 bg-primary rounded-full sm:-translate-x-1/2 mt-5"></div>
+                <div class="hidden sm:block sm:w-1/2"></div>
+              </div>
+
+              <div class="relative flex items-start">
+                <div class="hidden sm:block sm:w-1/2"></div>
+                <div class="absolute left-3 sm:left-1/2 w-2 h-2 bg-primary rounded-full sm:-translate-x-1/2 mt-5"></div>
+                <div class="flex-1 sm:flex-none sm:w-1/2 sm:pl-8">
+                  <div class="card-hover ml-8 sm:ml-0 p-5 rounded-xl border border-border bg-background cursor-pointer" @click="expanded = expanded === 2024 ? null : 2024">
+                    <span class="text-xs font-bold text-primary">2024</span>
+                    <h3 class="text-base font-semibold text-foreground mt-1 mb-1">参与建设国家科研项目</h3>
+                    <p class="text-sm text-muted-foreground">参与广州市某局牵头的国家级科考项目</p>
+                    <div x-show="expanded === 2024" x-collapse class="overflow-hidden">
+                      <p class="mt-3 text-xs text-muted-foreground pt-3 border-t border-border">与东软合作建设科考船舶系统，实现了在公海环境船上人员内网通信需求打造了集办公娱乐于一体的智能化系统。</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="relative flex items-start">
+                <div class="flex-1 sm:flex-none sm:w-1/2 sm:pr-8 sm:text-right">
+                  <div class="card-hover ml-8 sm:ml-0 p-5 rounded-xl border border-border bg-background cursor-pointer" @click="expanded = expanded === 2023 ? null : 2023">
+                    <span class="text-xs font-bold text-primary">2023</span>
+                    <h3 class="text-base font-semibold text-foreground mt-1 mb-1">与广西彰泰集团达成战略合作</h3>
+                    <p class="text-sm text-muted-foreground">通过与广西彰泰集团的合作，帮助客户升级了智能费控系统。</p>
+                    <div x-show="expanded === 2023" x-collapse class="overflow-hidden">
+                      <p class="mt-3 text-xs text-muted-foreground pt-3 border-t border-border">与用友软件合作，推动智能财务管理解决方案的落地。</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="absolute left-3 sm:left-1/2 w-2 h-2 bg-primary rounded-full sm:-translate-x-1/2 mt-5"></div>
+                <div class="hidden sm:block sm:w-1/2"></div>
+              </div>
+
+              <div class="relative flex items-start">
+                <div class="hidden sm:block sm:w-1/2"></div>
+                <div class="absolute left-3 sm:left-1/2 w-2 h-2 bg-primary rounded-full sm:-translate-x-1/2 mt-5"></div>
+                <div class="flex-1 sm:flex-none sm:w-1/2 sm:pl-8">
+                  <div class="card-hover ml-8 sm:ml-0 p-5 rounded-xl border border-border bg-background cursor-pointer" @click="expanded = expanded === 2022 ? null : 2022">
+                    <span class="text-xs font-bold text-primary">2022</span>
+                    <h3 class="text-base font-semibold text-foreground mt-1 mb-1">陆续与多家中大型企业达成合作</h3>
+                    <p class="text-sm text-muted-foreground">建设了广西盛天集团智能办公系统，助力企业数智化转型。</p>
+                    <div x-show="expanded === 2022" x-collapse class="overflow-hidden">
+                      <p class="mt-3 text-xs text-muted-foreground pt-3 border-t border-border">同时与多家企业达成合作，推动行业数字化进程。包括与广西壮族自治区某县人民政府合作，推动智慧城市建设。</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="relative flex items-start">
+                <div class="flex-1 sm:flex-none sm:w-1/2 sm:pr-8 sm:text-right">
+                  <div class="card-hover ml-8 sm:ml-0 p-5 rounded-xl border border-border bg-background cursor-pointer" @click="expanded = expanded === 2021 ? null : 2021">
+                    <span class="text-xs font-bold text-primary">2021</span>
+                    <h3 class="text-base font-semibold text-foreground mt-1 mb-1">影象限正式成立</h3>
+                    <p class="text-sm text-muted-foreground">正式创办影象限公司，团队最初5人。</p>
+                    <div x-show="expanded === 2021" x-collapse class="overflow-hidden">
+                      <p class="mt-3 text-xs text-muted-foreground pt-3 border-t border-border">最开始从南宁出发，成为蓝凌软件服务商，2023年在深圳成立深圳影象限，团队规模扩大到20人。</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="absolute left-3 sm:left-1/2 w-2 h-2 bg-primary rounded-full sm:-translate-x-1/2 mt-5"></div>
+                <div class="hidden sm:block sm:w-1/2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="w-full border-t border-border/40 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background z-10"></div>
+        <div class="flex whitespace-nowrap animate-marquee py-12">
+          <span class="text-4xl sm:text-6xl lg:text-8xl font-bold text-transparent mx-4" style="-webkit-text-stroke: 1px hsl(var(--muted-foreground));">创新 & 探索</span>
+          <span class="text-4xl sm:text-6xl lg:text-8xl font-bold text-transparent mx-4" style="-webkit-text-stroke: 1px hsl(var(--muted-foreground));">创新 & 探索</span>
+          <span class="text-4xl sm:text-6xl lg:text-8xl font-bold text-transparent mx-4" style="-webkit-text-stroke: 1px hsl(var(--muted-foreground));">创新 & 探索</span>
+          <span class="text-4xl sm:text-6xl lg:text-8xl font-bold text-transparent mx-4" style="-webkit-text-stroke: 1px hsl(var(--muted-foreground));">创新 & 探索</span>
+        </div>
+      </section>
+
+      <section id="contact" class="w-full py-16 md:py-24 border-t border-border/40 bg-muted/30 relative overflow-hidden">
+        <div class="absolute inset-0 bg-dots opacity-30"></div>
+        <div class="container px-4 md:px-6 mx-auto max-w-4xl relative z-10">
+          <div class="rounded-xl border border-border bg-background p-8 sm:p-10 text-center">
+            <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl text-foreground mb-4">联系我们</h2>
+            <p class="text-muted-foreground mb-8">
+              欢迎联系我们，获取更多解决方案。
+            </p>
+            
+            <img src="/call.svg" alt="联系" class="mx-auto mb-8 w-40 sm:w-52">
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+              <a href="https://work.weixin.qq.com/kfid/kfcbbb3d72fe4f7da49" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8 w-full sm:w-auto">
+                微信客服
+              </a>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 text-sm text-muted-foreground">
+              <a href="mailto:swatxhim@outlook.com" class="hover:text-foreground transition-colors">
+                Email: swatxhim@outlook.com
+              </a>
+              <a href="tel:+8615811807109" class="hover:text-foreground transition-colors">
+                Phone: (+86) 15811807109
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-border bg-background">
+      <div class="container px-4 py-8 mx-auto max-w-7xl">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-2">
+            <svg class="h-5 w-5 text-primary"><use href="/sprites.svg#logo"/></svg>
+            <span class="text-sm font-semibold text-foreground">影象限</span>
+          </div>
+          
+          <nav class="flex flex-wrap justify-center gap-6 text-sm">
+            <button onclick="scrollToSection('about')" class="text-muted-foreground hover:text-foreground transition-colors">关于我们</button>
+            <button onclick="scrollToSection('features')" class="text-muted-foreground hover:text-foreground transition-colors">服务特点</button>
+            <button onclick="scrollToSection('services')" class="text-muted-foreground hover:text-foreground transition-colors">服务内容</button>
+            <button onclick="scrollToSection('contact')" class="text-muted-foreground hover:text-foreground transition-colors">联系我们</button>
+          </nav>
+          
+          <button 
+            @click="theme = theme === 'dark' ? 'light' : 'dark'" 
+            class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground h-9 w-9"
+          >
+            <svg x-show="theme === 'dark'" class="h-4 w-4"><use href="/sprites.svg#sun"/></svg>
+            <svg x-show="theme === 'light'" class="h-4 w-4"><use href="/sprites.svg#moon"/></svg>
+          </button>
+        </div>
+        
+        <div class="mt-6 pt-6 border-t border-border text-center text-xs text-muted-foreground">
+          <p>&copy; <span id="current-year"></span> 影象限. All rights reserved.</p>
+          <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" class="mt-1 inline-block hover:text-foreground transition-colors">
+            粤ICP备2024284751号-2
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <button 
+      x-data="{ visible: false }"
+      x-show="visible"
+      x-cloak
+      x-transition
+      @scroll.window="visible = window.pageYOffset > 300"
+      @click="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      class="fixed bottom-6 right-6 bg-primary text-primary-foreground w-10 h-10 rounded-lg flex items-center justify-center shadow-lg z-50 hover:bg-primary/90 active:scale-95 transition-all"
+    >
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+      </svg>
+    </button>
+  </div>
+
+  <script src="./js/bundle.js"></script>
+</body>
+</html>

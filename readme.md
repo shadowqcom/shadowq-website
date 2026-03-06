@@ -1,6 +1,6 @@
 # 影象限官网
 
-本项目为深圳市影象限软件有限公司官方网站，基于 Next.js 构建，包含公司简介、服务内容、发展历程、联系方式等模块，支持响应式设计。
+本项目为深圳市影象限软件有限公司官方网站，包含公司简介、服务内容、发展历程、联系方式等模块，支持响应式设计。
 
 ## 主要页面与功能
 
@@ -14,9 +14,7 @@
 
 ## 技术栈
 
-- [Next.js](https://nextjs.org/) 15+
-- React 18+
-- TypeScript
+- Alpine.js
 - Tailwind CSS
 
 ## 本地开发
@@ -24,27 +22,16 @@
 1. 安装依赖
 
    ```bash
-   pnpm install
+   npm install
    ```
 
 2. 启动开发服务器
 
    ```bash
-   pnpm run dev
+   npm run build
+   ```
+   ```bash
+   npm run dev
    ```
 
-3. 访问 [http://localhost:3000](http://localhost:3000)
-
-## 目录结构
-
-```
-├── app/
-│   ├── components/         # 组件目录
-│   ├── page.tsx            # 主页入口
-│   └── layout.tsx          # 全局布局
-├── public/                 # 静态资源（如 logo、favicon）
-├── .gitignore
-├── package.json
-├── readme.md
-└── ...
-```
+3. 访问 [http://localhost:8080](http://localhost:8080)
